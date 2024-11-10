@@ -1,0 +1,251 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin-top: 4rem;
+}
+
+.header {
+    background-color: #3366cc;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fixa o cabeçalho na parte superior */
+    top: 0;
+    width: 100%; /* Garante que o cabeçalho ocupe toda a largura */
+    z-index: 1000; /* Coloca o cabeçalho acima dos outros elementos */
+}
+
+.header h1 {
+    margin: 0; /* Remove qualquer margem para alinhar com o canto */
+}
+
+.header nav {
+    /* Pode adicionar espaçamento se necessário */
+}
+
+.header nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+/* Seção Sobre a Loja */
+#sobre {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+}
+
+.sobre-imagem img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Seção Produtos */
+.produtos {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.produtos h2 {
+    text-align: left;
+    color: #3366cc;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-bottom: 1rem; /* Espaçamento abaixo do título */
+}
+
+.produtos h2::after {
+    content: "";
+    display: block;
+    width: calc(100% - 1rem);
+    height: 4px;
+    background-color: #3366cc;
+    position: absolute;
+    left: 0;
+    bottom: 0; /* Alinha a linha com a parte inferior do padding */
+}
+
+.produtos-grid {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    flex-wrap: wrap;
+}
+
+.produto-item {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: calc(25% - 1rem);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.produto-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.produto-item button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #3366cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.produto-item button:hover {
+    background-color: #2851a3;
+}
+
+.sobre {
+    display: flex;
+    align-items: flex-start; /* Alinha ao topo */
+    gap: 2rem; /* Espaço entre a imagem e o texto */
+    margin-bottom: 2rem; /* Espaço inferior */
+}
+
+.sobre-imagem {
+    width: 50%; /* Define a largura da imagem */
+}
+
+.sobre-texto {
+    width: 50%; /* Define a largura do texto */
+    align-self: flex-start; /* Alinha o texto ao topo */
+}
+
+.sobre-texto h2 {
+    font-size: 1.8rem;
+    color: #3366cc;
+    margin-bottom: 0.5rem;
+}
+
+/* Linha azul padrão para "Sobre a loja" e "Produtos" */
+.linha {
+    width: 100%; /* Largura total do elemento pai */
+    height: 3px; /* Ajuste a espessura para igualar a linha de "Produtos" */
+    background-color: #3366cc; /* Cor azul */
+    margin: 0.5rem 0; /* Espaçamento acima e abaixo da linha */
+}
+
+
+/* Layout responsivo */
+@media (max-width: 768px) {
+    #sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .produtos-grid {
+        flex-direction: column;
+    }
+
+    .produto-item {
+        width: 100%;
+    }
+}
+
+/* Estilos de Layout para Tablet */
+@media (min-width: 641px) and (max-width: 1023px) {
+    /* Ajusta a seção 'Sobre a loja' para exibir em uma coluna */
+    #sobre {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sobre-imagem, .sobre-texto {
+        width: 100%; /* Ocupa a largura total no modo coluna */
+    }
+
+    /* Ajusta a grade de produtos para exibir 2 itens por linha */
+    .produtos-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Duas colunas */
+        gap: 1rem;
+    }
+
+    .produto-item {
+        width: 100%; /* Ajuste para ocupar a largura disponível */
+    }
+}
+
+/* Estilos de Layout para Mobile */
+@media (max-width: 640px) {
+    .header {
+        background-color: #3366cc; /* Cor de fundo azul */
+        color: white;              /* Cor do texto */
+        position: fixed;           /* Cabeçalho fixo no topo */
+        top: 0;                    /* Posiciona no topo */
+        left: 0;
+        width: 100%;
+        height: 60px;              /* Altura do cabeçalho */
+        display: flex;             /* Flexbox para alinhar os itens ao lado */
+        justify-content: space-between; /* Espaçamento entre os itens */
+        align-items: center;       /* Alinha os itens verticalmente */
+        padding: 0 10px;           /* Ajuste de padding lateral */
+        z-index: 1000;             /* Coloca o cabeçalho sobre os outros conteúdos */
+        font-size: 0.6rem;         /* Ajuste do tamanho da fonte */
+    }
+
+    /* Ajustes para o texto "EBAC Shoes" */
+    .header .logo {
+        font-size: 1.2rem;         /* Tamanho maior para o logo (EBAC Shoes) */
+        font-weight: bold;         /* Deixar o texto mais destacado */
+    }
+
+    /* Ajustes no menu de navegação */
+    .header nav {
+        display: flex;             /* Alinhar os itens do menu em linha */
+        gap: 1rem;                 /* Espaçamento entre os links */
+    }
+
+    .header nav a {
+        color: white;              /* Cor dos links */
+        text-decoration: none;     /* Remover o sublinhado */
+        font-size: 1rem;           /* Tamanho dos links */
+    }
+
+    /* Adicionando espaçamento para a seção 'Sobre a loja' */
+    #sobre {
+        margin-top: 80px; /* Espaço superior após o cabeçalho fixo */
+        padding-top: 10px; /* Pequeno ajuste no padding para garantir o afastamento */
+        text-align: center; 
+        flex-direction: column;
+        font-size: 0.5rem; 
+    }
+
+    .sobre-imagem, .sobre-texto {
+        width: 100%;
+    }
+
+    /* Ajusta a grade de produtos para exibir um item por linha */
+    .produtos-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .produto-item {
+        width: 100%;
+    }
+}
